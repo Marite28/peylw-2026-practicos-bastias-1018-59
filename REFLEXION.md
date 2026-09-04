@@ -8,4 +8,4 @@ Las etiquetas semánticas le dan significado a cada parte de la página, no solo
 
 ## 3 Verificacion de rutas de navegacion
 
-Para verificar las rutas en el entorno local, abrí la carpeta del proyecto y abrí tanto index.html como acercade.html con el navegador Edge. Hice click en los enlaces del menú de navegación ("Inicio" y "Acerca de") en ambas páginas, y verifiqué que me llevaran correctamente al archivo correspondiente.
+Para verificar las rutas en el entorno local, abrí la carpeta del proyecto y abrí tanto     index.html como acercade.html con el navegador Edge. Hice click en los enlaces del menú de navegación ("Inicio" y "Acerca de") en las dos páginas, y verifiqué que me ingresen al archivo correspondiente. Para verificar en GitHub Pages, entré al link (https://marite28.github.io/peylw-2026-practicos-bastias-1018-59/) y volví a probar los enlaces "Inicio" y "Acerca de" del menú, confirmando que funcionaban igual que en el entorno local.
