@@ -37,30 +37,111 @@
       </table>
     </div>
 
-    <h2>Escribime</h2>
-    <form action="#" method="post">
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" name="nombre" required>
+    <h2>Formulario de contacto</h2>
+    <form action="#" method="get">
+      <p>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" maxlength="20" required>
+      </p>
 
-      <label for="email">Correo</label>
-      <input type="email" id="email" name="email" required>
+      <p>
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" maxlength="20">
+      </p>
 
-      <label for="asunto">Asunto</label>
-      <select id="asunto" name="asunto">
-        <option>Consulta</option>
-        <option>Colaboración</option>
-        <option>Otro</option>
-      </select>
+      <p>
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+      </p>
 
-      <label for="mensaje">Mensaje</label>
-      <textarea id="mensaje" name="mensaje" rows="5"></textarea>
+      <p>
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Ej: +54 2920 123456">
+      </p>
 
-      <button type="submit">Enviar mensaje</button>
+      <p>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" min="16" max="120">
+      </p>
+
+      <p>
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion">
+      </p>
+
+      <p>
+        <label for="provincia">Provincia:</label>
+        <input type="text" id="provincia" name="provincia" list="lista-provincias">
+        <datalist id="lista-provincias">
+          <option value="Río Negro"></option>
+          <option value="Neuquén"></option>
+          <option value="Chubut"></option>
+          <option value="Santa Cruz"></option>
+          <option value="Tierra del Fuego"></option>
+          <option value="La Pampa"></option>
+        </datalist>
+      </p>
+
+      <p>
+        <label for="cp">Código postal:</label>
+        <input type="text" id="cp" name="cp" pattern="^[A-Z]\d{4}[A-Z]{3}$" title="Formato requerido: una letra mayúscula, cuatro dígitos y tres letras mayúsculas. Ej: R8500AAF">
+      </p>
+
+      <fieldset>
+        <legend>Método de contacto preferido</legend>
+        <input type="radio" id="metodo-email" name="metodo" value="Correo electrónico" checked>
+        <label for="metodo-email">Correo electrónico</label>
+
+        <input type="radio" id="metodo-postal" name="metodo" value="Correo postal">
+        <label for="metodo-postal">Correo postal</label>
+
+        <input type="radio" id="metodo-telefono" name="metodo" value="Teléfono">
+        <label for="metodo-telefono">Teléfono</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Suscripciones de interés</legend>
+        <input type="checkbox" id="sub-noticias" name="suscripcion" value="Noticias">
+        <label for="sub-noticias">Noticias</label>
+
+        <input type="checkbox" id="sub-promociones" name="suscripcion" value="Promociones">
+        <label for="sub-promociones">Promociones</label>
+
+        <input type="checkbox" id="sub-alertas" name="suscripcion" value="Alertas" checked>
+        <label for="sub-alertas">Alertas</label>
+
+        <input type="checkbox" id="sub-eventos" name="suscripcion" value="Eventos">
+        <label for="sub-eventos">Eventos</label>
+      </fieldset>
+
+      <p>
+        <button type="submit" id="btn-cargar-bastias-1018-59">Cargar</button>
+      </p>
     </form>
+
+    <h2>Resumen de datos</h2>
+    <div class="contenedor-tabla">
+      <table>
+        <tbody>
+          <tr><th>Nombre</th><td id="resumen-nombre"></td></tr>
+          <tr><th>Apellido</th><td id="resumen-apellido"></td></tr>
+          <tr><th>Email</th><td id="resumen-email"></td></tr>
+          <tr><th>Teléfono</th><td id="resumen-telefono"></td></tr>
+          <tr><th>Edad</th><td id="resumen-edad"></td></tr>
+          <tr><th>Dirección</th><td id="resumen-direccion"></td></tr>
+          <tr><th>Provincia</th><td id="resumen-provincia"></td></tr>
+          <tr><th>CP</th><td id="resumen-cp"></td></tr>
+          <tr><th>Método de contacto</th><td id="resumen-metodo"></td></tr>
+          <tr><th>Suscripciones</th><td id="resumen-suscripciones"></td></tr>
+        </tbody>
+      </table>
+    </div>
   </main>
 
   <footer>&copy; 2026 - Marité Bastías- CURZA</footer>
 
   <a href="#top" class="volver-arriba" aria-label="Volver al inicio">&#9650;</a>
+
+  <script src="script.js"></script>
 </body>
 </html>

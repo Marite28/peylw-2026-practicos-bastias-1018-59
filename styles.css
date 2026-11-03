@@ -32,7 +32,6 @@ body {
   line-height: 1.6;
 }
 
-/* ---------- Header fijo ---------- */
 header {
   position: fixed;
   top: 0;
@@ -57,7 +56,6 @@ header h1 {
   font-weight: 700;
 }
 
-/* ---------- Logo animado ---------- */
 .logo-curza {
   height: 52px;
   width: 52px;
@@ -69,7 +67,6 @@ header h1 {
   transform: rotateY(360deg);
 }
 
-/* ---------- Navegación (Flexbox) ---------- */
 nav ul {
   display: flex;
   gap: 0.5rem;
@@ -92,9 +89,8 @@ nav a:focus {
   background-color: var(--secundario);
 }
 
-/* ---------- Contenido principal ---------- */
 main {
-  padding-top: calc(var(--alto-header) + 1.5rem); /* evita que el header fijo tape el contenido */
+  padding-top: calc(var(--alto-header) + 1.5rem);
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: 3rem;
@@ -104,7 +100,6 @@ main {
 
 h2 { color: var(--primario); }
 
-/* ---------- Biografía con título sticky (acercade.html) ---------- */
 .caja-biografia {
   max-height: 300px;
   overflow-y: auto;
@@ -124,9 +119,8 @@ h2 { color: var(--primario); }
   border-bottom: 2px solid var(--secundario);
 }
 
-/* ---------- Tabla (contacto.html) ---------- */
 .contenedor-tabla {
-  overflow-x: auto; /* permite scroll lateral en pantallas chicas */
+  overflow-x: auto;
   margin-bottom: 2rem;
 }
 
@@ -153,7 +147,6 @@ thead th {
 
 tbody tr:nth-child(even) { background-color: var(--fondo-alt); }
 
-/* ---------- Formulario (Grid) ---------- */
 form {
   display: grid;
   grid-template-columns: 140px 1fr;
@@ -203,7 +196,6 @@ form button {
 
 form button:hover { background-color: var(--primario-claro); }
 
-/* ---------- Botón volver al inicio ---------- */
 .volver-arriba {
   position: fixed;
   bottom: 20px;
@@ -231,14 +223,13 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ---------- Responsive (móviles) ---------- */
 @media (max-width: 768px) {
   :root { --alto-header: 210px; }
 
   header { padding: 0.6rem 1rem; }
 
   nav ul {
-    flex-direction: column; /* enlaces apilados verticalmente */
+    flex-direction: column;
     gap: 0.2rem;
   }
 
@@ -248,11 +239,14 @@ footer {
   }
 
   form {
-    grid-template-columns: 1fr; /* etiqueta arriba del campo */
+    grid-template-columns: 1fr;
   }
 
   form button {
     grid-column: 1;
     width: 100%;
   }
+}
+.cv-completo {
+  display: none;
 }
