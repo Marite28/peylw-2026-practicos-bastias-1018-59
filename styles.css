@@ -1,0 +1,252 @@
+/*
+  TP4 - Estilado avanzado, posicionamiento y responsive design
+  Alumno: [Marité Bastías] | Legajo/Token: [bastias1018-59]
+  Paleta HSL elegida:
+    Primario:   hsl(222, 47%, 32%)
+    Secundario: hsl(172, 55%, 36%)
+    Fondo:      hsl(220, 30%, 97%)
+    Texto:      hsl(222, 25%, 18%)
+*/
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+  --primario: hsl(222, 47%, 32%);
+  --primario-claro: hsl(222, 47%, 42%);
+  --secundario: hsl(172, 55%, 36%);
+  --fondo: hsl(220, 30%, 97%);
+  --fondo-alt: hsl(222, 40%, 92%);
+  --texto: hsl(222, 25%, 18%);
+  --borde: hsl(222, 20%, 80%);
+  --alto-header: 130px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--primario);
+  color: #fff;
+  padding: 0.6rem 2rem;
+  box-shadow: 0 2px 8px hsla(222, 47%, 10%, 0.3);
+}
+
+.titulo-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.logo-curza {
+  height: 52px;
+  width: 52px;
+  border-radius: 50%;
+  transition: transform 1s ease-in-out;
+}
+
+.logo-curza:hover {
+  transform: rotateY(360deg);
+}
+
+nav ul {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
+}
+
+nav a {
+  display: block;
+  padding: 0.4rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: var(--secundario);
+}
+
+main {
+  padding-top: calc(var(--alto-header) + 1.5rem);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h2 { color: var(--primario); }
+
+.caja-biografia {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 0 1.2rem 1rem;
+  background-color: var(--fondo);
+}
+
+.caja-biografia h2 {
+  position: sticky;
+  top: 0;
+  background-color: var(--fondo);
+  z-index: 10;
+  margin: 0;
+  padding: 0.8rem 0;
+  border-bottom: 2px solid var(--secundario);
+}
+
+.contenedor-tabla {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 480px;
+}
+
+th, td {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--borde);
+}
+
+th:nth-child(1), td:nth-child(1) { width: 30%; }
+th:nth-child(2), td:nth-child(2) { width: 35%; }
+th:nth-child(3), td:nth-child(3) { width: 35%; }
+
+thead th {
+  background-color: var(--primario);
+  color: #fff;
+}
+
+tbody tr:nth-child(even) { background-color: var(--fondo-alt); }
+
+form {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  align-items: center;
+  background-color: #fff;
+  padding: 1.5rem;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+}
+
+form label { font-weight: 600; }
+
+form input,
+form select,
+form textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--secundario);
+  box-shadow: 0 0 0 3px hsla(172, 55%, 36%, 0.25);
+}
+
+form button {
+  grid-column: 2;
+  justify-self: start;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.7rem 1.6rem;
+  background-color: var(--primario);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+form button:hover { background-color: var(--primario-claro); }
+
+.volver-arriba {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--secundario);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 8px hsla(222, 47%, 10%, 0.35);
+}
+
+.volver-arriba:hover { background-color: var(--primario); }
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--primario);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  :root { --alto-header: 210px; }
+
+  header { padding: 0.6rem 1rem; }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  form button {
+    grid-column: 1;
+    width: 100%;
+  }
+}
+.cv-completo {
+  display: none;
+}
