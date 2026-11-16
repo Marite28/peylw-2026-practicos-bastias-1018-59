@@ -1,20 +1,34 @@
-# Reflexión
+Reflexión - Laboratorio 6
 
-## 1. Token Único
-bastias-1018-59
+Alumna: Marité Bastías Token: bastias-1018-59
 
-## 2. Salida de git status antes del primer commit
+1. Elegí el juego Adivinanza de Números. El sistema genera un número aleatorio entre 1 y 100 y yo voy ingresando intentos. Después de cada intento me avisa si el número es "muy alto" o "muy bajo", o si acerté. También cuenta los intentos y calcula un puntaje al ganar.
 
-On branch master
-Your branch is up to date with 'origin/master'.
+2. Código de lectura y escritura del record en localStorage
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        README.md
-        capturas/
+Para leer el record (cuando carga la pagina y cuando se reinicia la partida):
 
-nothing added to commit but untracked files present (use "git add" to track)
+js
+function mostrarRecord() {
+  const guardado = localStorage.getItem(CLAVE_RECORD);
+  if (guardado !== null) {
+    parrafoRecord.textContent = "Record Actual: " + guardado + " intentos de " + TOKEN;
+  } else {
+    parrafoRecord.textContent = "Record Actual: todavía no hay";
+  }
+}
 
-## 3. Diferencia entre staging area y working directory
+Para escribir el record (cuando gano e hice menos intentos que el record guardado):
 
-El working directory es la carpeta de mi computadora donde edito los archivos del proyecto. El staging area es un espacio intermedio donde pongo los archivos que quiero incluir en el próximo commit usando git add. La diferencia es que los cambios en el working directory todavía no están listos para guardarse en el historial, mientras que los que están en el staging area sí van a formar parte del próximo commit cuando ejecuto git commit.
+js
+const recordGuardado = localStorage.getItem(CLAVE_RECORD);
+if (recordGuardado === null || intentos < Number(recordGuardado)) {
+  localStorage.setItem(CLAVE_RECORD, intentos);
+  mostrarRecord();
+  
+  mostrarFeedback("¡Ganaste en " + intentos + " intentos! Nuevo record.", "feedback-ok");
+}
+
+La clave con la que se guarda es "record-adivinanza-" + TOKEN, así queda asociada a mi token.
+
+3. para evitar que se pueda hacer trampa armé todo el juego dentro de una funcion que se ejecuta sola. así el numero secreto no es una variable global, sino local; si alguien escribe numeroSecreto en la consola, va a dar error porque fuera de esa funcion no existe.
