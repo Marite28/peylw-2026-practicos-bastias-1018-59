@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego \ Portal personal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+    <header>
+        <div class="titulo-cabecera">
+            <h1>Mi portal personal</h1>
+            <img class="logo-curza" src="img/logo-curza.png" alt="Logo del CURZA">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+        <li><a href="acercade.html">Acerca de</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="juego.html">Juego</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 id="titulo-juego">Área de juegos de Marité Bastías - Token: bastias-1018-59</h2>
+         <p>Adiviná el número secreto entre 1 y 100. Te voy a decir si tu intento es muy alto o muy bajo.</p>
+
+         <section id="juego" class="juego-contenedor">
+
+      <!-- Panel de estadísticas -->
+      <div class="panel-stats">
+        <p>Intentos: <span id="intentos">0</span></p>
+        <p>Puntos: <span id="puntos">0</span></p>
+        <p id="record">Récord Actual: --</p>
+      </div>
+
+      <!-- Área interactiva -->
+      <div class="area-juego">
+        <label for="entrada-numero">Tu número:</label>
+        <input type="number" id="entrada-numero" min="1" max="100" inputmode="numeric" placeholder="1 a 100">
+        <div class="botones-juego">
+          <button type="button" class="btn-juego btn-probar" id="btn-probar-bastias-1018-59">Probar</button>
+          <button type="button" class="btn-juego btn-reiniciar" id="btn-reiniciar-bastias-1018-59">Reiniciar</button>
+        </div>
+      </div>
+
+      <!-- Panel de feedback -->
+      <div id="feedback" class="panel-feedback" aria-live="polite">
+        ¡Empezá a jugar!
+      </div>
+
+    </section>
+  </main>
+
+  <footer>&copy; 2026 - [Marité Bastías] - CURZA</footer>
+
+  <a href="#top" class="volver-arriba" aria-label="Volver al inicio">&#9650;</a>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -224,7 +224,8 @@ footer {
 }
 
 @media (max-width: 768px) {
-  :root { --alto-header: 210px; }
+  /* 250px (antes 210px) porque el menú ahora tiene un enlace más: "Juego" */
+  :root { --alto-header: 250px; }
 
   header { padding: 0.6rem 1rem; }
 
@@ -249,4 +250,149 @@ footer {
 }
 .cv-completo {
   display: none;
+}
+
+/* ===================================================================
+   LABORATORIO 6: Juego de adivinanza de números
+   =================================================================== */
+.juego-contenedor {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background-color: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+}
+
+/* Panel de estadísticas */
+.panel-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: space-between;
+}
+
+.panel-stats p {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background-color: var(--fondo-alt);
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.panel-stats span {
+  color: var(--primario);
+  font-size: 1.2rem;
+}
+
+/* Área interactiva */
+.area-juego {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.area-juego label { font-weight: 600; }
+
+#entrada-numero {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.2rem; /* 16px o más evita el zoom automático en el celular */
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#entrada-numero:focus {
+  outline: none;
+  border-color: var(--secundario);
+  box-shadow: 0 0 0 3px hsla(172, 55%, 36%, 0.25);
+}
+
+#entrada-numero:disabled {
+  background-color: var(--fondo-alt);
+  cursor: not-allowed;
+}
+
+.botones-juego {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.btn-juego {
+  font-family: inherit;
+  font-size: 1rem;
+  min-height: 44px; /* tamaño cómodo para tocar con el dedo */
+  padding: 0.7rem 1.6rem;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s, opacity 0.2s;
+}
+
+.btn-probar { background-color: var(--primario); }
+.btn-probar:hover:not(:disabled) { background-color: var(--primario-claro); }
+
+.btn-reiniciar { background-color: var(--secundario); }
+.btn-reiniciar:hover { background-color: hsl(172, 55%, 28%); }
+
+.btn-juego:active:not(:disabled) { transform: scale(0.96); }
+
+.btn-juego:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Panel de feedback: cambia de color con transición suave */
+.panel-feedback {
+  min-height: 3.2rem;
+  padding: 0.9rem 1.2rem;
+  border-left: 6px solid var(--primario);
+  border-radius: 8px;
+  background-color: var(--fondo-alt);
+  color: var(--texto);
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+.feedback-neutro {
+  background-color: var(--fondo-alt);
+  border-left-color: var(--primario);
+}
+
+.feedback-ok {
+  background-color: hsl(145, 50%, 90%);
+  border-left-color: hsl(145, 55%, 32%);
+  color: hsl(145, 60%, 17%);
+}
+
+.feedback-alto {
+  background-color: hsl(8, 80%, 94%);
+  border-left-color: hsl(8, 70%, 45%);
+  color: hsl(8, 70%, 25%);
+}
+
+.feedback-bajo {
+  background-color: hsl(210, 80%, 93%);
+  border-left-color: hsl(210, 70%, 42%);
+  color: hsl(210, 70%, 22%);
+}
+
+.feedback-error {
+  background-color: hsl(40, 90%, 90%);
+  border-left-color: hsl(35, 85%, 40%);
+  color: hsl(35, 80%, 22%);
+}
+
+/* Celulares chicos */
+@media (max-width: 480px) {
+  .juego-contenedor { padding: 1rem; }
+
+  .panel-stats p { width: 100%; }
+
+  .btn-juego { flex: 1 1 100%; }
 }
