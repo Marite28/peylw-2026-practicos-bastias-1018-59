@@ -25,6 +25,7 @@ const recordGuardado = localStorage.getItem(CLAVE_RECORD);
 if (recordGuardado === null || intentos < Number(recordGuardado)) {
   localStorage.setItem(CLAVE_RECORD, intentos);
   mostrarRecord();
+  
   mostrarFeedback("¡Ganaste en " + intentos + " intentos! Nuevo record.", "feedback-ok");
 }
 
